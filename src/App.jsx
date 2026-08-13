@@ -1,6 +1,7 @@
 import React from 'react'
 import TopBar from './components/TopBar'
 import scanlines from './assets/scanlines.png'
+import  Sidebar  from './components/Sidebar'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       />
       
       <TopBar />
+      <Sidebar />
     </div>
   )
 }
