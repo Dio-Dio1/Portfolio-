@@ -1,5 +1,6 @@
 import React from 'react'
 import matrix from '../assets/matrix.jpg'
+import  Terminal  from './Terminal'
 
 const glow = 'drop-shadow-[0_0_8px_rgba(167,139,250,0.75)]'
 const strongGlow = 'drop-shadow-[0_0_12px_rgba(167,139,250,0.9)]'
@@ -103,10 +104,14 @@ const AboutPanel = () => {
         </div>
 
         <div className="w-full h-px bg-violet-400/20" />
+        
 
+        <Terminal />
       </div>
+      
 
     </div>
+    
   )
 }
 

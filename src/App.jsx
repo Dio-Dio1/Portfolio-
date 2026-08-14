@@ -4,6 +4,7 @@ import scanlines from './assets/scanlines.png'
 import  Sidebar  from './components/Sidebar'
 import AboutPanel from './components/AboutPanel'
 
+
 const App = () => {
   return (
     <div className="relative min-h-screen bg-neutral-900 overflow-x-hidden">
@@ -18,6 +19,7 @@ const App = () => {
         <Sidebar />
         <AboutPanel />
       </div>
+      
       
     </div>
   )
