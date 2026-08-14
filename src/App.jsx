@@ -2,6 +2,7 @@ import React from 'react'
 import TopBar from './components/TopBar'
 import scanlines from './assets/scanlines.png'
 import  Sidebar  from './components/Sidebar'
+import AboutPanel from './components/AboutPanel'
 
 const App = () => {
   return (
@@ -13,7 +14,11 @@ const App = () => {
       />
       
       <TopBar />
-      <Sidebar />
+      <div className='flex h-screen'>
+        <Sidebar />
+        <AboutPanel />
+      </div>
+      
     </div>
   )
 }
