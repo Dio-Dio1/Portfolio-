@@ -3,6 +3,7 @@ import TopBar from './components/TopBar'
 import scanlines from './assets/scanlines.png'
 import  Sidebar  from './components/Sidebar'
 import AboutPanel from './components/AboutPanel'
+import ProjectsPanel from './components/PanelHost/ProjectsPanel'
 
 
 const App = () => {
@@ -17,7 +18,8 @@ const App = () => {
       <TopBar />
       <div className='flex h-screen'>
         <Sidebar />
-        <AboutPanel />
+        {/* <AboutPanel /> */}
+        <ProjectsPanel />
       </div>
       
       
