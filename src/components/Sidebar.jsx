@@ -9,9 +9,8 @@ const skills = [
 
 const bars = [35, 70, 45, 85, 55, 95, 65, 80, 50, 90, 60, 75]
 
-const Sidebar = ({activePanel, setActivePanel}) => {
+const Sidebar = ({ activePanel, setActivePanel }) => {
   return (
-
     <aside className="relative flex h-screen w-[24%] flex-col gap-8 overflow-hidden bg-[#211b2b] p-6 font-mono">
       <header className="border-b border-violet-400/20 pb-4">
         <p className="text-[10px] tracking-[0.3em] text-violet-400/50">
@@ -23,7 +22,6 @@ const Sidebar = ({activePanel, setActivePanel}) => {
         </p>
       </header>
 
-      
       <section>
         <div className="mb-3 flex justify-between">
           <h2 className="text-sm font-bold uppercase tracking-widest text-violet-400">
@@ -49,7 +47,6 @@ const Sidebar = ({activePanel, setActivePanel}) => {
         </div>
       </section>
 
-      
       <section>
         <h2 className="mb-3 text-sm font-bold uppercase tracking-widest text-violet-400">
           [ skills ]
@@ -85,30 +82,47 @@ const Sidebar = ({activePanel, setActivePanel}) => {
         </div>
       </section>
 
-      {/* Bottom */}
       <div className="mt-5 border-t border-violet-400/20 pt-5">
 
         <div className="mb-4 text-[10px] text-violet-400/50">
-          STATUS: <span className="text-violet-400">ONLINE</span>
+          STATUS:{' '}
+          <span className="text-violet-400">
+            ONLINE
+          </span>
+
           <br />
-          MODE: <span className="text-violet-400">CREATIVE</span>
+
+          MODE:{' '}
+          <span className="text-violet-400">
+            CREATIVE
+          </span>
         </div>
 
-        <div className="flex gap-2">
-          <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
-            onClick={()=>{setActivePanel('about')}}
+        <div className="grid grid-cols-3 gap-2">
+
+          <button
+            onClick={() => setActivePanel('about')}
+            className="w-full border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
           >
             $ hello
           </button>
 
-          <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
-            onClick={()=>{setActivePanel('projects')}}
+          <button
+            onClick={() => setActivePanel('projects')}
+            className="w-full border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
           >
             $ projects
           </button>
+
+          <button
+            onClick={() => setActivePanel('socials')}
+            className="w-full border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
+          >
+            $ socials
+          </button>
+
         </div>
 
-        
       </div>
 
     </aside>

@@ -5,6 +5,7 @@ import  Sidebar  from './components/Sidebar'
 import AboutPanel from './components/PanelHost/AboutPanel'
 import ProjectsPanel from './components/PanelHost/ProjectsPanel'
 import { useState } from 'react'
+import SocialsPanel from './components/PanelHost/SocialsPanel'
 
 const App = () => {
   const [activePanel, setActivePanel] = useState('about');
@@ -22,7 +23,13 @@ const App = () => {
         {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
         activePanel === 'projects'?(
         
-        <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />): null}
+        <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />): 
+        activePanel === 'socials'?(
+          <SocialsPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>
+        ): null
+        
+        
+        }
         
         
       </div>

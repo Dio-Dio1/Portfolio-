@@ -13,6 +13,8 @@ const Terminal = ({activePanel, setActivePanel}) => {
       setActivePanel('about')
     }if(value == 'projects'){
       setActivePanel('projects')
+    }if(value == 'socials'){
+      setActivePanel('socials')
     }
     }
     
