@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Terminal = () => {
+const Terminal = ({activePanel, setActivePanel}) => {
   const [terminalPanel, setterminalPanel] = useState(true)
 
   const handleInput = (e) => {
@@ -9,6 +9,10 @@ const Terminal = () => {
         const value = e.target.value;
     if(value == 'help'){
         setterminalPanel(false);
+    }if(value == 'about'){
+      setActivePanel('about')
+    }if(value == 'projects'){
+      setActivePanel('projects')
     }
     }
     
@@ -30,17 +34,16 @@ const Terminal = () => {
       <div className="text-sm text-violet-50">
         socials: View the social command
         <br />
-        color theme: To view color
+        projects: View projects made
         <br />
-        color theme: To view color
+        about: Read me 
         <br />
-        color theme: To view color
+        journey: Walk along my journey.
         <br />
-        color theme: To view color
 
         <div className="text-violet-50 mt-10">
           arrival@swarupOS:- $
-          <input placeholder="Type a command..." className='outline-none'/>
+          <input placeholder="Type a command..." className='outline-none' onKeyDown={handleInput}/>
         </div>
       </div>
     )

@@ -102,7 +102,7 @@ const Sidebar = ({activePanel, setActivePanel}) => {
           </button>
 
           <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
-            onClick={()=>{setActivePanel('')}}
+            onClick={()=>{setActivePanel('projects')}}
           >
             $ projects
           </button>

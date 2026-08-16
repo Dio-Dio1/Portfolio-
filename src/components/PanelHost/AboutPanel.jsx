@@ -106,7 +106,7 @@ const AboutPanel = ({activePanel, setActivePanel}) => {
         <div className="w-full h-px bg-violet-400/20" />
 
 
-        <Terminal />
+        <Terminal activePanel = {activePanel} setActivePanel = {setActivePanel}/>
       </div>
 
 

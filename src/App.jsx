@@ -2,7 +2,7 @@ import React from 'react'
 import TopBar from './components/TopBar'
 import scanlines from './assets/scanlines.png'
 import  Sidebar  from './components/Sidebar'
-import AboutPanel from './components/AboutPanel'
+import AboutPanel from './components/PanelHost/AboutPanel'
 import ProjectsPanel from './components/PanelHost/ProjectsPanel'
 import { useState } from 'react'
 
@@ -20,8 +20,9 @@ const App = () => {
       <div className='flex h-screen'>
         <Sidebar  activePanel = {activePanel} setActivePanel = {setActivePanel}/>
         {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
+        activePanel === 'projects'?(
         
-        <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />}
+        <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />): null}
         
         
       </div>
