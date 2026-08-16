@@ -5,7 +5,7 @@ import Terminal from '../Terminal'
 const glow = 'drop-shadow-[0_0_8px_rgba(167,139,250,0.75)]'
 const strongGlow = 'drop-shadow-[0_0_12px_rgba(167,139,250,0.9)]'
 
-const AboutPanel = () => {
+const AboutPanel = ({activePanel, setActivePanel}) => {
   return (
     <div className="relative flex-1 w-[76%] h-screen overflow-hidden font-mono text-xl text-violet-400">
 

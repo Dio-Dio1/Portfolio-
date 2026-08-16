@@ -33,9 +33,8 @@ const ProjectsPanel = () => {
         <div key={project.id} className="flex flex-col gap-3">
         <img
           src={project.image}
-          className="w-full"
+          className="w-full transition-transform duration-300 ease-in-out hover:scale-102 hover:border-2"
           alt={project.title}
-          class = "transition-transform duration-300 ease-in-out hover:scale-102 hover:border-2"
         />
 
         <a href='#' className='cursor-pointer text-violet-50'>{project.title}</a>

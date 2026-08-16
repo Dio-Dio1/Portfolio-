@@ -9,7 +9,7 @@ const skills = [
 
 const bars = [35, 70, 45, 85, 55, 95, 65, 80, 50, 90, 60, 75]
 
-const Sidebar = () => {
+const Sidebar = ({activePanel, setActivePanel}) => {
   return (
 
     <aside className="relative flex h-screen w-[24%] flex-col gap-8 overflow-hidden bg-[#211b2b] p-6 font-mono">
@@ -95,11 +95,15 @@ const Sidebar = () => {
         </div>
 
         <div className="flex gap-2">
-          <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]">
+          <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
+            onClick={()=>{setActivePanel('about')}}
+          >
             $ hello
           </button>
 
-          <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]">
+          <button className="flex-1 border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
+            onClick={()=>{setActivePanel('')}}
+          >
             $ projects
           </button>
         </div>

@@ -4,9 +4,10 @@ import scanlines from './assets/scanlines.png'
 import  Sidebar  from './components/Sidebar'
 import AboutPanel from './components/AboutPanel'
 import ProjectsPanel from './components/PanelHost/ProjectsPanel'
-
+import { useState } from 'react'
 
 const App = () => {
+  const [activePanel, setActivePanel] = useState('about');
   return (
     <div className="relative min-h-screen bg-neutral-900 overflow-x-hidden">
       <img 
@@ -17,9 +18,12 @@ const App = () => {
       
       <TopBar />
       <div className='flex h-screen'>
-        <Sidebar />
-        {/* <AboutPanel /> */}
-        <ProjectsPanel />
+        <Sidebar  activePanel = {activePanel} setActivePanel = {setActivePanel}/>
+        {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
+        
+        <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />}
+        
+        
       </div>
       
       
