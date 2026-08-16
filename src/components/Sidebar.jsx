@@ -11,7 +11,7 @@ const bars = [35, 70, 45, 85, 55, 95, 65, 80, 50, 90, 60, 75]
 
 const Sidebar = ({ activePanel, setActivePanel }) => {
   return (
-    <aside className="relative flex h-screen w-[24%] flex-col gap-8 overflow-hidden bg-[#211b2b] p-6 font-mono">
+    <aside className="relative flex w-[24%] flex-col gap-8 overflow-hidden bg-[#211b2b] p-6 font-mono border-r border-violet-400/10">
       <header className="border-b border-violet-400/20 pb-4">
         <p className="text-[10px] tracking-[0.3em] text-violet-400/50">
           SYSTEM://PORTFOLIO
@@ -23,12 +23,16 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
       </header>
 
       <section>
-        <div className="mb-3 flex justify-between">
+        <div className="mb-3 flex justify-between items-center">
           <h2 className="text-sm font-bold uppercase tracking-widest text-violet-400">
             [ activity ]
           </h2>
 
-          <span className="text-[9px] text-violet-400/50">
+          <span className="flex items-center gap-1 text-[9px] text-violet-400/70">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400 opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-violet-400" />
+            </span>
             LIVE
           </span>
         </div>
@@ -102,23 +106,35 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
 
           <button
             onClick={() => setActivePanel('about')}
-            className="w-full border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
+            className={`w-full border p-2 text-xs transition-all duration-150 ${
+              activePanel === 'about'
+                ? 'border-violet-400 bg-violet-400 text-[#211b2b] font-bold'
+                : 'border-violet-400/40 bg-violet-400/10 text-violet-400 hover:bg-violet-400/20 hover:border-violet-400/70'
+            }`}
           >
             $ hello
           </button>
 
           <button
             onClick={() => setActivePanel('projects')}
-            className="w-full border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
+            className={`w-full border p-2 text-xs transition-all duration-150 ${
+              activePanel === 'projects'
+                ? 'border-violet-400 bg-violet-400 text-[#211b2b] font-bold'
+                : 'border-violet-400/40 bg-violet-400/10 text-violet-400 hover:bg-violet-400/20 hover:border-violet-400/70'
+            }`}
           >
-            $ projects
+            $ work
           </button>
 
           <button
             onClick={() => setActivePanel('socials')}
-            className="w-full border border-violet-400/40 bg-violet-400/10 p-2 text-xs text-violet-400 transition hover:bg-violet-400 hover:text-[#211b2b]"
+            className={`w-full border p-2 text-xs transition-all duration-150 ${
+              activePanel === 'socials'
+                ? 'border-violet-400 bg-violet-400 text-[#211b2b] font-bold'
+                : 'border-violet-400/40 bg-violet-400/10 text-violet-400 hover:bg-violet-400/20 hover:border-violet-400/70'
+            }`}
           >
-            $ socials
+            $ reach
           </button>
 
         </div>

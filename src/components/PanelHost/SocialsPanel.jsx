@@ -4,56 +4,49 @@ import Terminal from '../Terminal'
 
 const SocialsPanel = ({activePanel, setActivePanel}) => {
   return (
-    <div className="relative flex-1 space-y-4 border-violet-400/20 p-10 text-xl text-violet-400">
-      <h1>&gt; getInTouch();</h1>
+    <div className="relative flex-1 overflow-hidden font-mono text-xl text-violet-400">
 
-      <p className="mt-10 text-lg text-violet-50">
-        Channel open. Got a project that needs a developer, an idea that needs
-        some code, or simply want to talk tech? Drop a message and let’s see
-        where the conversation takes us.
-      </p>
+      <div className="absolute inset-0 bg-black/70" />
 
-      <div className="mt-20 flex flex-col items-center gap-10">
+      <div className="relative z-10 h-full overflow-y-auto p-10 flex flex-col gap-7">
 
-        <div className="flex flex-wrap justify-center gap-10">
+        <h1 className="drop-shadow-[0_0_8px_rgba(167,139,250,0.75)]">&gt; getInTouch();</h1>
+
+        <p className="text-lg text-violet-50 max-w-2xl leading-relaxed">
+          Channel open. Got a project that needs a developer, an idea that needs
+          some code, or simply want to talk tech? Drop a message and let's see
+          where the conversation takes us.
+        </p>
+
+        <div className="flex flex-wrap gap-8 mt-4">
           <a
             href="#"
-            className="flex h-55 w-100 flex-col items-center justify-center gap-1 rounded-2xl border border-violet-400/40 py-1 transition hover:scale-102 hover:border-violet-400 hover:bg-violet-400/5"
+            className="flex h-52 w-96 flex-col items-center justify-center gap-3 border border-violet-400/40 bg-[#211b2b]/60 transition-all duration-200 hover:scale-105 hover:border-violet-400 hover:bg-violet-400/10 hover:drop-shadow-[0_0_16px_rgba(167,139,250,0.3)]"
           >
-            <FaGithub className="h-25 w-25 text-violet-400" />
-
-            <span className="text-violet-50">
-              GitHub
-            </span>
-
-            <p className="text-sm text-gray-400">
-              See how I build.
-            </p>
+            <FaGithub className="h-16 w-16 text-violet-400" />
+            <span className="text-base font-bold text-violet-50">GitHub</span>
+            <p className="text-xs text-violet-400/70 tracking-widest uppercase">See how I build.</p>
           </a>
 
           <a
             href="#"
-            className="flex h-55 w-100 flex-col items-center justify-center gap-1 rounded-2xl border border-violet-400/40 py-1 transition hover:scale-102 hover:border-violet-400 hover:bg-violet-400/5"
+            className="flex h-52 w-96 flex-col items-center justify-center gap-3 border border-violet-400/40 bg-[#211b2b]/60 transition-all duration-200 hover:scale-105 hover:border-violet-400 hover:bg-violet-400/10 hover:drop-shadow-[0_0_16px_rgba(167,139,250,0.3)]"
           >
-            <FaLinkedin className="h-25 w-25 text-violet-400" />
-
-            <span className="text-violet-50">
-              LinkedIn
-            </span>
-
-            <p className="text-sm text-gray-400">
-              Let’s connect.
-            </p>
+            <FaLinkedin className="h-16 w-16 text-violet-400" />
+            <span className="text-base font-bold text-violet-50">LinkedIn</span>
+            <p className="text-xs text-violet-400/70 tracking-widest uppercase">Let's connect.</p>
           </a>
         </div>
 
-        <p className="text-center text-2xl font-bold text-violet-400">
-          To Build Together.
+        <p className="text-lg font-bold text-violet-400 drop-shadow-[0_0_8px_rgba(167,139,250,0.75)]">
+          // To Build Together.
         </p>
-        
+
+        <div className="w-full h-px bg-violet-400/20" />
+
+        <Terminal activePanel={activePanel} setActivePanel={setActivePanel}/>
+
       </div>
-      <div className="w-full h-px bg-violet-400/20" />
-      <Terminal activePanel = {activePanel} setActivePanel = {setActivePanel}/>
     </div>
   )
 }
