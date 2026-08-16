@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-body{
-    font-family: 'JetBrains Mono', monospace;
+body {
+  font-family: 'JetBrains Mono', monospace;
 }
-

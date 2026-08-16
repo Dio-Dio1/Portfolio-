@@ -10,7 +10,7 @@ import SocialsPanel from './components/PanelHost/SocialsPanel'
 const App = () => {
   const [activePanel, setActivePanel] = useState('about');
   return (
-    <div className="relative min-h-screen bg-neutral-900 overflow-x-hidden">
+    <div className="relative h-screen overflow-hidden bg-neutral-900 flex flex-col">
       <img 
         src={scanlines} 
         className="fixed inset-0 w-full h-full object-cover pointer-events-none z-50 opacity-25" 
@@ -18,7 +18,7 @@ const App = () => {
       />
       
       <TopBar />
-      <div className='flex h-screen'>
+      <div className='flex flex-1 min-h-0'>
         <Sidebar  activePanel = {activePanel} setActivePanel = {setActivePanel}/>
         {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
         activePanel === 'projects'?(
