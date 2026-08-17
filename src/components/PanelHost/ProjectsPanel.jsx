@@ -7,9 +7,24 @@ import Typewriter from '../Typewriter'
 import { playBlip } from '../../utils/audio'
 
 const projects = [
-  { title: 'SkillGig — Job Portal Website', image: SkillGig, id: 1 },
-  { title: 'Github Clone', image: Github, id: 2 },
-  { title: 'Portfolio Website', image: Portfolio, id: 3 },
+  { 
+    title: 'SkillGig — Job Portal Website', 
+    image: SkillGig, 
+    id: 1, 
+    link: 'https://skillgig.vercel.app/'
+  },
+  { 
+    title: 'Github Clone', 
+    image: Github, 
+    id: 2, 
+    link: 'https://github.com/Dio-Dio1/Portfolio-' 
+  },
+  { 
+    title: 'Portfolio Website', 
+    image: Portfolio, 
+    id: 3, 
+    link: 'https://swarupdev.vercel.app/' 
+  },
 ]
 
 const ProjectsPanel = ({ activePanel, setActivePanel }) => {
@@ -37,8 +52,11 @@ const ProjectsPanel = ({ activePanel, setActivePanel }) => {
 
           <div className="grid grid-cols-2 gap-4">
             {projects.map((project) => (
-              <div
+              <a
                 key={project.id}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 onMouseEnter={playBlip}
                 className="flex flex-col gap-2 border border-violet-500/20 bg-[#1f1630]/40 rounded overflow-hidden transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/5 hover:shadow-[0_0_12px_rgba(139,92,246,0.15)] cursor-pointer group"
               >
@@ -49,15 +67,12 @@ const ProjectsPanel = ({ activePanel, setActivePanel }) => {
                     alt={project.title}
                   />
                 </div>
-                <a
-                  href="#"
-                  onMouseEnter={playBlip}
-                  className="px-3 pb-3 text-xs text-violet-300 hover:text-white transition-colors duration-150"
-                >
+                <span className="px-3 pb-3 text-xs text-violet-300 group-hover:text-white transition-colors duration-150">
                   &gt; {project.title}
-                </a>
-              </div>
+                </span>
+              </a>
             ))}
+            
             <div className="border border-violet-500/15 bg-[#0f0a1c] rounded p-4 overflow-y-auto shadow-inner">
               <Terminal activePanel={activePanel} setActivePanel={setActivePanel} />
             </div>
