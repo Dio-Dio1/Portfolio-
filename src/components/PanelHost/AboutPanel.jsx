@@ -10,11 +10,6 @@ const AboutPanel = ({activePanel, setActivePanel}) => {
   return (
     <div className="relative flex-1 overflow-hidden font-mono text-xl text-violet-400">
 
-      <img
-        src={matrix}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.20]"
-      />
 
       <div className="absolute inset-0 bg-black/60" />
 

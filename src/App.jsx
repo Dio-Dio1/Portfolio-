@@ -7,10 +7,14 @@ import ProjectsPanel from './components/PanelHost/ProjectsPanel'
 import { useState, useEffect, useRef } from 'react'
 import SocialsPanel from './components/PanelHost/SocialsPanel'
 import { playSelect } from './utils/audio'
+import BootScreen from './components/BootScreen'
 
 const App = () => {
-  const [activePanel, setActivePanel] = useState('about');
-  const isFirstMount = useRef(true);
+  const [isBooting, setIsBooting] = useState(() => {
+    return sessionStorage.getItem('portfolio-booted') !== 'true'
+  })
+  const [activePanel, setActivePanel] = useState('about')
+  const isFirstMount = useRef(true)
 
   useEffect(() => {
     if (isFirstMount.current) {
@@ -19,6 +23,16 @@ const App = () => {
     }
     playSelect();
   }, [activePanel]);
+
+  const handleBootDone = () => {
+    sessionStorage.setItem('portfolio-booted', 'true')
+    setIsBooting(false)
+  }
+
+  if (isBooting) {
+    return <BootScreen onDone={handleBootDone} />
+  }
+
   return (
     <div className="relative h-screen overflow-hidden bg-neutral-900 flex flex-col">
       <img 
