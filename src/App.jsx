@@ -30,18 +30,16 @@ const App = () => {
       <TopBar />
       <div className='flex flex-1 min-h-0'>
         <Sidebar  activePanel = {activePanel} setActivePanel = {setActivePanel}/>
-        {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
-        activePanel === 'projects'?(
-        
-        <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />): 
-        activePanel === 'socials'?(
-          <SocialsPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>
-        ): null
-        
-        
-        }
-        
-        
+        <div key={activePanel} className="flex flex-1 min-w-0 h-full animate-panel-in">
+          {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
+          activePanel === 'projects'?(
+          
+          <ProjectsPanel activePanel = {activePanel} setActivePanel = {setActivePanel} />): 
+          activePanel === 'socials'?(
+            <SocialsPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>
+          ): null
+          }
+        </div>
       </div>
       
       
