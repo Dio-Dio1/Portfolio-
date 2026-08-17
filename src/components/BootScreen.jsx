@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { playType, playSuccess } from '../utils/audio'
 
 const lines = [
-  "SWARUP-BIOS v1.4.2",
-  "CPU: COFFEE-POWERED BUILDER @ 3.40GHz",
-  "RAM: 64MB OK",
-  "SYSTEM DIAGNOSTICS: STABLE",
-  "CONNECTING TO PORTFOLIO SERVER...",
-  "PORTFOLIO LOAD SUCCESS."
+  "SWARUP-OS v2.0.4 [RETRO-KERNEL]",
+  "INIT HARDWARE: GPU VIOLET-GLOW ENGINE",
+  "LOADING CORE MODULES: ABOUT, PROJECTS, SOCIALS",
+  "SYSTEM DIAGNOSTICS: 100% STABLE",
+  "ESTABLISHING HIGH-BEAM RETRO CONNECTION...",
 ]
 
 const BootScreen = ({ onDone }) => {
@@ -30,7 +29,7 @@ const BootScreen = ({ onDone }) => {
         clearInterval(interval)
         setPhase('loading')
       }
-    }, 250)
+    }, 220)
 
     return () => clearInterval(interval)
   }, [phase])
@@ -43,7 +42,6 @@ const BootScreen = ({ onDone }) => {
       setProgress(prev => {
         if (prev < 100) {
           playType()
-          // Increment progress randomly between 10 and 25 to keep loading brief
           const next = Math.min(prev + Math.floor(Math.random() * 15 + 10), 100)
           return next
         } else {
@@ -51,7 +49,6 @@ const BootScreen = ({ onDone }) => {
           setPhase('done')
           playSuccess()
           
-          // Wait 500ms, then trigger fade out, then call onDone after 300ms transition completes
           setTimeout(() => {
             setIsFadingOut(true)
             setTimeout(() => {
@@ -61,7 +58,7 @@ const BootScreen = ({ onDone }) => {
           return 100
         }
       })
-    }, 120)
+    }, 100)
 
     return () => clearInterval(interval)
   }, [phase, onDone])
@@ -83,52 +80,69 @@ const BootScreen = ({ onDone }) => {
     }
   }, [onDone])
 
-  // Calculate loading bar blocks (20 total slots)
   const totalBlocks = 20
   const filledBlocks = Math.floor((progress / 100) * totalBlocks)
   const barString = '[' + '█'.repeat(filledBlocks) + ' '.repeat(totalBlocks - filledBlocks) + ']'
 
   return (
-    <div className={`fixed inset-0 z-50 flex flex-col justify-between bg-black p-8 font-mono text-xs text-green-500 sm:p-16 select-none cursor-pointer transition-all duration-300 ${
-      isFadingOut ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'
-    }`}>
-      <div className="space-y-4">
-        {/* Render lines */}
-        <div className="space-y-1">
-          {visibleLines.map((line, idx) => (
-            <p key={idx} className="leading-relaxed">
-              &gt; {line}
-            </p>
-          ))}
+    <div
+      className={`fixed inset-0 z-50 flex flex-col justify-center items-center bg-[#0c0813] p-4 sm:p-8 font-mono text-xs text-violet-400 retro-grid select-none cursor-pointer transition-all duration-300 ${
+        isFadingOut ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'
+      }`}
+    >
+      {/* Centered Window Box to match UI */}
+      <div className="w-full max-w-2xl border border-violet-500/20 bg-[#181224]/90 backdrop-blur-md rounded shadow-[0_0_30px_rgba(139,92,246,0.25)] overflow-hidden flex flex-col">
+        
+        {/* Title Bar */}
+        <div className="flex justify-between items-center bg-violet-950/50 border-b border-violet-500/20 px-4 py-2.5 text-xs">
+          <span className="text-violet-300 font-bold tracking-widest">[ SYSTEM_INITIALIZE.EXE ]</span>
+          <div className="flex gap-1.5">
+            <span className="w-2 h-2 rounded-full border border-violet-500/30 bg-violet-950/80" />
+            <span className="w-2 h-2 rounded-full border border-violet-500/30 bg-violet-950/80" />
+            <span className="w-2 h-2 rounded-full border border-violet-500/30 bg-violet-500/60 animate-pulse" />
+          </div>
         </div>
 
-        {/* Render progress bar */}
-        {phase !== 'lines' && (
-          <div className="space-y-1">
-            <p className="leading-relaxed text-green-600/80">
-              &gt; INITIALIZING PORTFOLIO RESOURCE PACKS...
-            </p>
-            <p className="leading-relaxed text-sm tracking-wider font-bold">
-              {barString} {progress}%
-            </p>
+        {/* Boot Terminal Output */}
+        <div className="p-6 space-y-4">
+          <div className="space-y-1.5">
+            {visibleLines.map((line, idx) => (
+              <p key={idx} className="leading-relaxed text-violet-300 drop-shadow-[0_0_8px_rgba(167,139,250,0.3)]">
+                &gt; {line}
+              </p>
+            ))}
           </div>
-        )}
 
-        {/* Success completion message */}
-        {phase === 'done' && (
-          <p className="animate-pulse text-sm text-green-400 font-bold mt-2">
-            &gt; SYSTEM READY. BOOTING CORE...
-          </p>
-        )}
-      </div>
+          {/* Progress Bar Container */}
+          {phase !== 'lines' && (
+            <div className="space-y-2 pt-2 border-t border-violet-500/10">
+              <p className="leading-relaxed text-violet-400/70">
+                &gt; MOUNTING VIOLET UI INTERFACE...
+              </p>
+              <p className="leading-relaxed text-sm tracking-widest font-bold text-violet-200 drop-shadow-[0_0_10px_rgba(167,139,250,0.8)]">
+                {barString} {progress}%
+              </p>
+            </div>
+          )}
 
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-green-600/60 mt-8 gap-2">
-        <p className="animate-pulse text-[10px]">
-          [ PRESS ANY KEY OR CLICK TO SKIP BOOT ]
-        </p>
-        <p className="text-[10px]">
-          SESSION_ID: {Math.random().toString(36).substr(2, 9).toUpperCase()}
-        </p>
+          {/* Success Status */}
+          {phase === 'done' && (
+            <p className="animate-pulse text-sm text-violet-300 font-bold mt-3 tracking-widest drop-shadow-[0_0_12px_rgba(167,139,250,0.9)]">
+              &gt; ACCESS GRANTED. LAUNCHING WORKSPACE...
+            </p>
+          )}
+        </div>
+
+        {/* Footer info inside window */}
+        <div className="flex flex-col sm:flex-row justify-between items-center bg-[#0f0a1c] border-t border-violet-500/15 px-4 py-2 text-violet-400/60 text-[10px] gap-2">
+          <span className="animate-pulse tracking-wider">
+            [ CLICK OR PRESS ANY KEY TO SKIP BOOT ]
+          </span>
+          <span className="tracking-widest">
+            SESSION_ID: {Math.random().toString(36).substr(2, 9).toUpperCase()}
+          </span>
+        </div>
+
       </div>
     </div>
   )

@@ -10,9 +10,11 @@ body {
     transform: translateY(8px) scale(0.995);
     filter: brightness(1.8) contrast(1.2);
   }
+
   50% {
     filter: brightness(1.2) contrast(1.1);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);

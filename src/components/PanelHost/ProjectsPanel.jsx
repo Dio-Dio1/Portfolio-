@@ -1,67 +1,70 @@
 import React from 'react'
-import  Portfolio from '../../assets/Portfolio.png'
-import  Github from '../../assets/Github.png'
-import  SkillGig from '../../assets/SkillGig.png'
+import Portfolio from '../../assets/Portfolio.png'
+import Github from '../../assets/Github.png'
+import SkillGig from '../../assets/SkillGig.png'
 import Terminal from '../Terminal'
-import matrix from '../../assets/matrix.jpg'
+import Typewriter from '../Typewriter'
 import { playBlip } from '../../utils/audio'
 
-const ProjectsPanel = ({activePanel, setActivePanel}) => {
+const projects = [
+  { title: 'SkillGig — Job Portal Website', image: SkillGig, id: 1 },
+  { title: 'Github Clone', image: Github, id: 2 },
+  { title: 'Portfolio Website', image: Portfolio, id: 3 },
+]
 
-    const projects = 
-        [{
-            title: 'SkillGig - A Job Portal Website',
-            image: SkillGig,
-            id:1
-        },
-
-            {
-                title:'Github Clone',
-                image: Github,
-                id:2
-            },
-
-            {
-                title: 'Portfolio Website',
-                image: Portfolio,
-                id:3
-            },
-        ]
+const ProjectsPanel = ({ activePanel, setActivePanel }) => {
   return (
-    <div className="relative flex-1 overflow-hidden font-mono text-xl text-violet-400">
+    <div className="relative flex-1 overflow-hidden font-mono text-violet-400 bg-[#0c0813] p-4 sm:p-6 retro-grid flex flex-col">
+      <div className="flex-1 flex flex-col border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] overflow-hidden">
 
-      <img
-        src={matrix}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.07]"
-      />
-      <div className="absolute inset-0 bg-black/60" />
-
-      <div className="relative z-10 h-full overflow-y-auto p-10">
-        <h1 className="drop-shadow-[0_0_8px_rgba(167,139,250,0.75)]">&gt; Projects();</h1>
-
-        <div className="grid grid-cols-2 gap-6 mt-6">
-          {projects.map((project) => (
-            <div key={project.id} onMouseEnter={playBlip} className="flex flex-col gap-3 border border-violet-400/20 bg-[#181818]/60 p-3 transition-all duration-200 hover:border-violet-400/60 hover:bg-[#181818]/80 cursor-pointer">
-              <div className="overflow-hidden">
-                <img
-                  src={project.image}
-                  className="w-full transition-transform duration-300 ease-in-out hover:scale-105"
-                  alt={project.title}
-                />
-              </div>
-              <a href='#' onMouseEnter={playBlip} className='cursor-pointer text-sm text-violet-50 hover:text-violet-300 transition-colors duration-150'>
-                &gt; {project.title}
-              </a>
-            </div>
-          ))}
-
-          <div className='border border-violet-400/30 bg-[#0a0f0d]/80 p-4 overflow-y-auto'>
-            <Terminal activePanel={activePanel} setActivePanel={setActivePanel}/>
+        <div className="flex justify-between items-center bg-violet-950/40 border-b border-violet-500/20 px-4 py-2.5 text-xs select-none">
+          <span className="text-violet-300 font-bold tracking-widest">[ PROJECTS.EXE ]</span>
+          <div className="flex gap-1.5">
+            <span className="w-2 h-2 rounded-full border border-violet-500/30 bg-violet-950/80" />
+            <span className="w-2 h-2 rounded-full border border-violet-500/30 bg-violet-950/80" />
+            <span className="w-2 h-2 rounded-full border border-violet-500/30 bg-violet-500/50 animate-pulse" />
           </div>
         </div>
-      </div>
 
+        <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
+
+          <div className="flex items-center gap-3 border-b border-violet-500/10 pb-4">
+            <h1 className="text-xl sm:text-2xl text-violet-300 drop-shadow-[0_0_8px_rgba(167,139,250,0.4)]">
+              &gt; <Typewriter text="Projects();" />
+            </h1>
+            <span className="w-2 h-4 bg-violet-400 animate-pulse drop-shadow-[0_0_12px_rgba(167,139,250,0.6)]" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                onMouseEnter={playBlip}
+                className="flex flex-col gap-2 border border-violet-500/20 bg-[#1f1630]/40 rounded overflow-hidden transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/5 hover:shadow-[0_0_12px_rgba(139,92,246,0.15)] cursor-pointer group"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={project.image}
+                    className="w-full transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    alt={project.title}
+                  />
+                </div>
+                <a
+                  href="#"
+                  onMouseEnter={playBlip}
+                  className="px-3 pb-3 text-xs text-violet-300 hover:text-white transition-colors duration-150"
+                >
+                  &gt; {project.title}
+                </a>
+              </div>
+            ))}
+            <div className="border border-violet-500/15 bg-[#0f0a1c] rounded p-4 overflow-y-auto shadow-inner">
+              <Terminal activePanel={activePanel} setActivePanel={setActivePanel} />
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   )
 }
