@@ -50,7 +50,9 @@ const AboutPanel = ({ activePanel, setActivePanel }) => {
               <p className="group">
                 &gt; <span className="text-violet-50">link github</span>{' '}
                 <a
-                  href="#"
+                  href="https://github.com/Dio-Dio1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onMouseEnter={playBlip}
                   className="text-violet-400 underline-offset-4 transition-all duration-150 group-hover:text-violet-200 group-hover:drop-shadow-[0_0_10px_rgba(167,139,250,1)] hover:underline"
                 >
@@ -61,7 +63,9 @@ const AboutPanel = ({ activePanel, setActivePanel }) => {
               <p className="group">
                 &gt; <span className="text-violet-50">link linkedin</span>{' '}
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/swarup-shakya/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onMouseEnter={playBlip}
                   className="text-violet-400 underline-offset-4 transition-all duration-150 group-hover:text-violet-200 group-hover:drop-shadow-[0_0_10px_rgba(167,139,250,1)] hover:underline"
                 >
@@ -69,15 +73,11 @@ const AboutPanel = ({ activePanel, setActivePanel }) => {
                 </a>
               </p>
 
-              <p className="group">
+              <p className="group opacity-50">
                 &gt; <span className="text-violet-50">link resume</span>{' '}
-                <a
-                  href="#"
-                  onMouseEnter={playBlip}
-                  className="text-violet-400 underline-offset-4 transition-all duration-150 group-hover:text-violet-200 group-hover:drop-shadow-[0_0_10px_rgba(167,139,250,1)] hover:underline"
-                >
-                  --checkout
-                </a>
+                <span className="text-violet-400/60 cursor-not-allowed">
+                  --offline
+                </span>
               </p>
             </div>
           </div>
@@ -102,7 +102,6 @@ const AboutPanel = ({ activePanel, setActivePanel }) => {
             </p>
           </div>
 
-          {/* Terminal Container */}
           <div className="pt-4 border-t border-violet-500/10">
             <div className="bg-[#0f0a1c] border border-violet-500/15 p-4 rounded shadow-inner">
               <Terminal activePanel={activePanel} setActivePanel={setActivePanel} />

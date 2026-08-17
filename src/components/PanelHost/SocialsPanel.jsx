@@ -9,7 +9,6 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
     <div className="relative flex-1 overflow-hidden font-mono text-violet-400 bg-[#0c0813] p-4 sm:p-6 retro-grid flex flex-col">
       <div className="flex-1 flex flex-col border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] overflow-hidden">
 
-
         <div className="flex justify-between items-center bg-violet-950/40 border-b border-violet-500/20 px-4 py-2.5 text-xs select-none">
           <span className="text-violet-300 font-bold tracking-widest">[ SOCIALS.EXE ]</span>
           <div className="flex gap-1.5">
@@ -38,7 +37,9 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
 
           <div className="flex flex-wrap gap-5">
             <a
-              href="#"
+              href="https://github.com/Dio-Dio1"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={playBlip}
               className="flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-10 py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
             >
@@ -48,7 +49,9 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
             </a>
 
             <a
-              href="#"
+              href="https://www.linkedin.com/in/swarup-shakya/"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={playBlip}
               className="flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-10 py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
             >
