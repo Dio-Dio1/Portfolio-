@@ -1,13 +1,25 @@
 import React from 'react'
 import { useState, useRef } from 'react'
+import { playType, playSuccess, playBlip } from '../utils/audio'
 
 const Terminal = ({activePanel, setActivePanel}) => {
   const [showHelp, setShowHelp] = useState(false)
   const inputRef = useRef(null)
 
   const handleInput = (e) => {
+    if (e.key !== 'Enter' && e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt') {
+      playType()
+    }
+
     if (e.key === 'Enter') {
       const value = e.target.value.trim().toLowerCase()
+      const validCommands = ['help', 'about', 'projects', 'socials']
+
+      if (validCommands.includes(value)) {
+        playSuccess()
+      } else if (value !== '') {
+        playBlip()
+      }
 
       if (value === 'help') {
         setShowHelp(true)

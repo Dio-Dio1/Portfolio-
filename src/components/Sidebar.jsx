@@ -1,4 +1,5 @@
 import React from 'react'
+import { playBlip } from '../utils/audio'
 
 const skills = [
   ['JavaScript', 84],
@@ -106,7 +107,8 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
 
           <button
             onClick={() => setActivePanel('about')}
-            className={`w-full border p-2 text-xs transition-all duration-150 ${
+            onMouseEnter={playBlip}
+            className={`w-full border p-2 text-xs transition-all duration-150 cursor-pointer ${
               activePanel === 'about'
                 ? 'border-violet-400 bg-violet-400 text-[#211b2b] font-bold'
                 : 'border-violet-400/40 bg-violet-400/10 text-violet-400 hover:bg-violet-400/20 hover:border-violet-400/70'
@@ -117,7 +119,8 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
 
           <button
             onClick={() => setActivePanel('projects')}
-            className={`w-full border p-2 text-xs transition-all duration-150 ${
+            onMouseEnter={playBlip}
+            className={`w-full border p-2 text-xs transition-all duration-150 cursor-pointer ${
               activePanel === 'projects'
                 ? 'border-violet-400 bg-violet-400 text-[#211b2b] font-bold'
                 : 'border-violet-400/40 bg-violet-400/10 text-violet-400 hover:bg-violet-400/20 hover:border-violet-400/70'
@@ -128,7 +131,8 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
 
           <button
             onClick={() => setActivePanel('socials')}
-            className={`w-full border p-2 text-xs transition-all duration-150 ${
+            onMouseEnter={playBlip}
+            className={`w-full border p-2 text-xs transition-all duration-150 cursor-pointer ${
               activePanel === 'socials'
                 ? 'border-violet-400 bg-violet-400 text-[#211b2b] font-bold'
                 : 'border-violet-400/40 bg-violet-400/10 text-violet-400 hover:bg-violet-400/20 hover:border-violet-400/70'

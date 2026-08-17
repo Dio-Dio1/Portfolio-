@@ -1,6 +1,7 @@
 import React from 'react'
 import matrix from '../../assets/matrix.jpg'
 import Terminal from '../Terminal'
+import { playBlip } from '../../utils/audio'
 
 const glow = 'drop-shadow-[0_0_8px_rgba(167,139,250,0.75)]'
 const strongGlow = 'drop-shadow-[0_0_12px_rgba(167,139,250,0.9)]'
@@ -12,7 +13,7 @@ const AboutPanel = ({activePanel, setActivePanel}) => {
       <img
         src={matrix}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.10]"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.20]"
       />
 
       <div className="absolute inset-0 bg-black/60" />
@@ -54,6 +55,7 @@ const AboutPanel = ({activePanel, setActivePanel}) => {
               &gt; <span className="text-violet-50">link github</span>{' '}
               <a
                 href="#"
+                onMouseEnter={playBlip}
                 className="text-violet-400 underline-offset-4 transition-all duration-150 group-hover:text-violet-200 group-hover:drop-shadow-[0_0_10px_rgba(167,139,250,1)] hover:underline"
               >
                 --open
@@ -64,6 +66,7 @@ const AboutPanel = ({activePanel, setActivePanel}) => {
               &gt; <span className="text-violet-50">link linkedin</span>{' '}
               <a
                 href="#"
+                onMouseEnter={playBlip}
                 className="text-violet-400 underline-offset-4 transition-all duration-150 group-hover:text-violet-200 group-hover:drop-shadow-[0_0_10px_rgba(167,139,250,1)] hover:underline"
               >
                 --connect
@@ -74,6 +77,7 @@ const AboutPanel = ({activePanel, setActivePanel}) => {
               &gt; <span className="text-violet-50">link resume</span>{' '}
               <a
                 href="#"
+                onMouseEnter={playBlip}
                 className="text-violet-400 underline-offset-4 transition-all duration-150 group-hover:text-violet-200 group-hover:drop-shadow-[0_0_10px_rgba(167,139,250,1)] hover:underline"
               >
                 --checkout

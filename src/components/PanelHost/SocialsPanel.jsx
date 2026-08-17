@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import Terminal from '../Terminal'
+import { playBlip } from '../../utils/audio'
 
 const SocialsPanel = ({activePanel, setActivePanel}) => {
   return (
@@ -21,6 +22,7 @@ const SocialsPanel = ({activePanel, setActivePanel}) => {
         <div className="flex flex-wrap gap-8 mt-4">
           <a
             href="#"
+            onMouseEnter={playBlip}
             className="flex h-52 w-96 flex-col items-center justify-center gap-3 border border-violet-400/40 bg-[#211b2b]/60 transition-all duration-200 hover:scale-105 hover:border-violet-400 hover:bg-violet-400/10 hover:drop-shadow-[0_0_16px_rgba(167,139,250,0.3)]"
           >
             <FaGithub className="h-16 w-16 text-violet-400" />
@@ -30,6 +32,7 @@ const SocialsPanel = ({activePanel, setActivePanel}) => {
 
           <a
             href="#"
+            onMouseEnter={playBlip}
             className="flex h-52 w-96 flex-col items-center justify-center gap-3 border border-violet-400/40 bg-[#211b2b]/60 transition-all duration-200 hover:scale-105 hover:border-violet-400 hover:bg-violet-400/10 hover:drop-shadow-[0_0_16px_rgba(167,139,250,0.3)]"
           >
             <FaLinkedin className="h-16 w-16 text-violet-400" />

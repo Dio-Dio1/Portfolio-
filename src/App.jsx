@@ -4,11 +4,21 @@ import scanlines from './assets/scanlines.png'
 import  Sidebar  from './components/Sidebar'
 import AboutPanel from './components/PanelHost/AboutPanel'
 import ProjectsPanel from './components/PanelHost/ProjectsPanel'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import SocialsPanel from './components/PanelHost/SocialsPanel'
+import { playSelect } from './utils/audio'
 
 const App = () => {
   const [activePanel, setActivePanel] = useState('about');
+  const isFirstMount = useRef(true);
+
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false;
+      return;
+    }
+    playSelect();
+  }, [activePanel]);
   return (
     <div className="relative h-screen overflow-hidden bg-neutral-900 flex flex-col">
       <img 
