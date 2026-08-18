@@ -5,7 +5,7 @@ Portfolio Website
 
 
 
-Current Status
-- Work in Progress...
+Current Status (What's left):
 
-
+- Redirect issue(Linkedin)
+- Responsiveness 
