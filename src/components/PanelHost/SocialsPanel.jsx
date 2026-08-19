@@ -41,7 +41,7 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={playBlip}
-              className="flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-10 py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
+              className="flex-1 min-w-[140px] flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-6 py-6 sm:px-10 sm:py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
             >
               <FaGithub className="h-12 w-12 text-violet-400 group-hover:text-violet-200 transition-colors duration-200" />
               <span className="text-sm font-bold text-violet-100 tracking-widest">GITHUB</span>
@@ -53,7 +53,7 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={playBlip}
-              className="flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-10 py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
+              className="flex-1 min-w-[140px] flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-6 py-6 sm:px-10 sm:py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
             >
               <FaLinkedin className="h-12 w-12 text-violet-400 group-hover:text-violet-200 transition-colors duration-200" />
               <span className="text-sm font-bold text-violet-100 tracking-widest">LINKEDIN</span>

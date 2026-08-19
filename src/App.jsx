@@ -42,9 +42,9 @@ const App = () => {
       />
       
       <TopBar />
-      <div className='flex flex-1 min-h-0'>
+      <div className="flex flex-col md:flex-row flex-1 min-h-0 overflow-hidden">
         <Sidebar  activePanel = {activePanel} setActivePanel = {setActivePanel}/>
-        <div key={activePanel} className="flex flex-1 min-w-0 h-full animate-panel-in">
+        <div key={activePanel} className="flex flex-1 min-w-0 h-full md:h-full animate-panel-in">
           {activePanel == 'about'? <AboutPanel activePanel = {activePanel} setActivePanel = {setActivePanel}/>: 
           activePanel === 'projects'?(
           

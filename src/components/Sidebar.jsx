@@ -12,10 +12,10 @@ const bars = [35, 70, 45, 85, 55, 95, 65, 80, 50, 90, 60, 75]
 
 const Sidebar = ({ activePanel, setActivePanel }) => {
   return (
-    <aside className="relative flex w-[24%] flex-col gap-6 overflow-hidden bg-[#0c0813] p-4 font-mono border-r border-violet-500/20 retro-grid">
+    <aside className="relative flex w-full md:w-[24%] flex-col gap-4 md:gap-6 overflow-hidden bg-[#0c0813] p-3 md:p-4 font-mono border-b md:border-b-0 md:border-r border-violet-500/20 retro-grid">
       
       {/* Outer Glow Container */}
-      <div className="flex-1 flex flex-col gap-6 border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] p-4 overflow-y-auto">
+      <div className="flex-1 flex flex-col gap-4 md:gap-6 border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] p-3 md:p-4 overflow-y-auto">
         
         {/* Header section */}
         <header className="border-b border-violet-500/20 pb-4">
@@ -35,7 +35,7 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
         </header>
 
         {/* Activity Monitor Section */}
-        <section>
+        <section className="hidden md:block">
           <div className="mb-2.5 flex justify-between items-center">
             <h2 className="text-xs font-bold uppercase tracking-widest text-violet-300 drop-shadow-[0_0_8px_rgba(167,139,250,0.4)]">
               [ ACTIVITY ]
@@ -65,7 +65,7 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
         </section>
 
         {/* Skills Level Section */}
-        <section>
+        <section className="hidden md:block">
           <h2 className="mb-2.5 text-xs font-bold uppercase tracking-widest text-violet-300 drop-shadow-[0_0_8px_rgba(167,139,250,0.4)]">
             [ SKILLS ]
           </h2>
@@ -101,9 +101,9 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
         </section>
 
         {/* Controls & Status Footer */}
-        <div className="mt-auto border-t border-violet-500/20 pt-4">
+        <div className="mt-0 md:mt-auto border-t border-violet-500/20 pt-3 md:pt-4">
 
-          <div className="mb-3 text-[10px] text-violet-400/60 leading-relaxed uppercase tracking-widest">
+          <div className="mb-3 text-[10px] text-violet-400/60 leading-relaxed uppercase tracking-widest hidden md:block">
             STATUS:{' '}
             <span className="text-violet-300 font-bold drop-shadow-[0_0_6px_rgba(167,139,250,0.6)]">
               ONLINE
@@ -115,7 +115,7 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-1 gap-2">
 
             <button
               onClick={() => setActivePanel('about')}

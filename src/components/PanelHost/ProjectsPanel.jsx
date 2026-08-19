@@ -50,7 +50,7 @@ const ProjectsPanel = ({ activePanel, setActivePanel }) => {
             <span className="w-2 h-4 bg-violet-400 animate-pulse drop-shadow-[0_0_12px_rgba(167,139,250,0.6)]" />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {projects.map((project) => (
               <a
                 key={project.id}
