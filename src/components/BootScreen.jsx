@@ -86,12 +86,12 @@ const BootScreen = ({ onDone }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col justify-center items-center bg-[#0c0813] p-4 sm:p-8 font-mono text-xs text-violet-400 retro-grid select-none cursor-pointer transition-all duration-300 ${
+      className={`fixed inset-0 z-50 flex flex-col justify-center items-center bg-bg-base p-4 sm:p-8 font-mono text-xs text-violet-400 retro-grid select-none cursor-pointer transition-all duration-300 ${
         isFadingOut ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'
       }`}
     >
       {/* Centered Window Box to match UI */}
-      <div className="w-full max-w-2xl border border-violet-500/20 bg-[#181224]/90 backdrop-blur-md rounded shadow-[0_0_30px_rgba(139,92,246,0.25)] overflow-hidden flex flex-col">
+      <div className="w-full max-w-2xl border border-violet-500/20 bg-bg-panel/90 backdrop-blur-md rounded shadow-[0_0_30px_rgba(139,92,246,0.25)] overflow-hidden flex flex-col">
         
         {/* Title Bar */}
         <div className="flex justify-between items-center bg-violet-950/50 border-b border-violet-500/20 px-4 py-2.5 text-xs">
@@ -134,7 +134,7 @@ const BootScreen = ({ onDone }) => {
         </div>
 
         {/* Footer info inside window */}
-        <div className="flex flex-col sm:flex-row justify-between items-center bg-[#0f0a1c] border-t border-violet-500/15 px-4 py-2 text-violet-400/60 text-[10px] gap-2">
+        <div className="flex flex-col sm:flex-row justify-between items-center bg-bg-inner border-t border-violet-500/15 px-4 py-2 text-violet-400/60 text-[10px] gap-2">
           <span className="animate-pulse tracking-wider">
             [ CLICK OR PRESS ANY KEY TO SKIP BOOT ]
           </span>

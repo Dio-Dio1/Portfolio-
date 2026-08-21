@@ -8,8 +8,8 @@ const strongGlow = 'drop-shadow-[0_0_12px_rgba(167,139,250,0.9)]'
 
 const AboutPanel = ({ activePanel, setActivePanel }) => {
   return (
-    <div className="relative flex-1 overflow-hidden font-mono text-violet-400 bg-[#0c0813] p-4 sm:p-6 retro-grid flex flex-col">
-      <div className="flex-1 flex flex-col border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] overflow-hidden">
+    <div className="relative flex-1 overflow-hidden font-mono text-violet-400 bg-bg-base p-4 sm:p-6 retro-grid flex flex-col">
+      <div className="flex-1 flex flex-col border border-violet-500/20 bg-bg-panel/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] overflow-hidden">
         
         <div className="flex justify-between items-center bg-violet-950/40 border-b border-violet-500/20 px-4 py-2.5 text-xs select-none">
           <span className="text-violet-300 font-bold tracking-widest">[ ABOUT.EXE ]</span>
@@ -103,7 +103,7 @@ const AboutPanel = ({ activePanel, setActivePanel }) => {
           </div>
 
           <div className="pt-4 border-t border-violet-500/10">
-            <div className="bg-[#0f0a1c] border border-violet-500/15 p-4 rounded shadow-inner">
+            <div className="bg-bg-inner border border-violet-500/15 p-4 rounded shadow-inner">
               <Terminal activePanel={activePanel} setActivePanel={setActivePanel} />
             </div>
           </div>

@@ -10,12 +10,19 @@ const skills = [
 
 const bars = [35, 70, 45, 85, 55, 95, 65, 80, 50, 90, 60, 75]
 
-const Sidebar = ({ activePanel, setActivePanel }) => {
+const themes = [
+  { id: 'violet', name: 'PINK / VIOLET' },
+  { id: 'green', name: 'GREEN' },
+  { id: 'amber', name: 'AMBER' },
+  { id: 'cyan', name: 'SILVER / CYAN' }
+]
+
+const Sidebar = ({ activePanel, setActivePanel, theme, setTheme }) => {
   return (
-    <aside className="relative flex w-full md:w-[24%] flex-col gap-4 md:gap-6 overflow-hidden bg-[#0c0813] p-3 md:p-4 font-mono border-b md:border-b-0 md:border-r border-violet-500/20 retro-grid">
+    <aside className="relative flex w-full md:w-[24%] flex-col gap-4 md:gap-6 overflow-hidden bg-bg-base p-3 md:p-4 font-mono border-b md:border-b-0 md:border-r border-violet-500/20 retro-grid">
       
       {/* Outer Glow Container */}
-      <div className="flex-1 flex flex-col gap-4 md:gap-6 border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] p-3 md:p-4 overflow-y-auto">
+      <div className="flex-1 flex flex-col gap-4 md:gap-6 border border-violet-500/20 bg-bg-panel/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] p-3 md:p-4 overflow-y-auto">
         
         {/* Header section */}
         <header className="border-b border-violet-500/20 pb-4">
@@ -50,7 +57,7 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
             </span>
           </div>
 
-          <div className="flex h-[110px] items-end gap-1 overflow-hidden border border-violet-500/15 bg-[#0f0a1c] p-3 rounded shadow-inner">
+          <div className="flex h-[110px] items-end gap-1 overflow-hidden border border-violet-500/15 bg-bg-inner p-3 rounded shadow-inner">
             {bars.map((height, i) => (
               <span
                 key={i}
@@ -70,7 +77,7 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
             [ SKILLS ]
           </h2>
 
-          <div className="space-y-3.5 border border-violet-500/15 bg-[#0f0a1c] p-3.5 rounded shadow-inner">
+          <div className="space-y-3.5 border border-violet-500/15 bg-bg-inner p-3.5 rounded shadow-inner">
             {skills.map(([name, level]) => (
               <div key={name}>
                 <div className="mb-1 flex justify-between text-xs">
@@ -100,6 +107,32 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
           </div>
         </section>
 
+        {/* CRT COLOR THEME SECTION */}
+        <section className="hidden md:block border-t border-violet-500/20 pt-4">
+          <h2 className="mb-2.5 text-xs font-bold uppercase tracking-widest text-violet-300 drop-shadow-[0_0_8px_rgba(167,139,250,0.4)]">
+            CRT COLOR THEME
+          </h2>
+          <div className="grid grid-cols-2 gap-2 text-[10px]">
+            {themes.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => {
+                  setTheme(t.id);
+                  playBlip();
+                }}
+                className={`flex items-center gap-1.5 py-1 text-left cursor-pointer uppercase font-bold tracking-wider ${
+                  theme === t.id
+                    ? 'text-violet-300 drop-shadow-[0_0_6px_rgba(167,139,250,0.8)]'
+                    : 'text-violet-400/50 hover:text-violet-300/80'
+                }`}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full ${theme === t.id ? 'bg-violet-400 animate-ping' : 'bg-violet-950 border border-violet-500/30'}`} />
+                {t.name}
+              </button>
+            ))}
+          </div>
+        </section>
+
         {/* Controls & Status Footer */}
         <div className="mt-0 md:mt-auto border-t border-violet-500/20 pt-3 md:pt-4">
 
@@ -115,6 +148,29 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
             </span>
           </div>
 
+          {/* Theme Selector for Mobile */}
+          <div className="md:hidden flex items-center justify-between mb-3 border-b border-violet-500/20 pb-3">
+            <span className="text-[10px] uppercase font-bold text-violet-400/60 tracking-wider">THEME:</span>
+            <div className="flex gap-2.5">
+              {themes.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => {
+                    setTheme(t.id);
+                    playBlip();
+                  }}
+                  className={`text-[9px] uppercase font-bold px-1.5 py-0.5 border rounded ${
+                    theme === t.id
+                      ? 'border-violet-400 bg-violet-400 text-bg-base'
+                      : 'border-violet-500/20 text-violet-400/60'
+                  }`}
+                >
+                  {t.id}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="grid grid-cols-3 md:grid-cols-1 gap-2">
 
             <button
@@ -122,8 +178,8 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
               onMouseEnter={playBlip}
               className={`w-full border px-3 py-2 text-xs transition-all duration-200 cursor-pointer rounded ${
                 activePanel === 'about'
-                  ? 'border-violet-400 bg-violet-400 text-[#0c0813] font-bold shadow-[0_0_14px_rgba(139,92,246,0.5)]'
-                  : 'border-violet-500/30 bg-[#1f1630]/40 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)]'
+                  ? 'border-violet-400 bg-violet-400 text-bg-base font-bold shadow-[0_0_14px_rgba(139,92,246,0.5)]'
+                  : 'border-violet-500/30 bg-bg-active-btn/30 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)]'
               }`}
             >
               $ hello
@@ -134,8 +190,8 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
               onMouseEnter={playBlip}
               className={`w-full border px-3 py-2 text-xs transition-all duration-200 cursor-pointer rounded ${
                 activePanel === 'projects'
-                  ? 'border-violet-400 bg-violet-400 text-[#0c0813] font-bold shadow-[0_0_14px_rgba(139,92,246,0.5)]'
-                  : 'border-violet-500/30 bg-[#1f1630]/40 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)]'
+                  ? 'border-violet-400 bg-violet-400 text-bg-base font-bold shadow-[0_0_14px_rgba(139,92,246,0.5)]'
+                  : 'border-violet-500/30 bg-bg-active-btn/30 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)]'
               }`}
             >
               $ work
@@ -146,8 +202,8 @@ const Sidebar = ({ activePanel, setActivePanel }) => {
               onMouseEnter={playBlip}
               className={`w-full border px-3 py-2 text-xs transition-all duration-200 cursor-pointer rounded ${
                 activePanel === 'socials'
-                  ? 'border-violet-400 bg-violet-400 text-[#0c0813] font-bold shadow-[0_0_14px_rgba(139,92,246,0.5)]'
-                  : 'border-violet-500/30 bg-[#1f1630]/40 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)]'
+                  ? 'border-violet-400 bg-violet-400 text-bg-base font-bold shadow-[0_0_14px_rgba(139,92,246,0.5)]'
+                  : 'border-violet-500/30 bg-bg-active-btn/30 text-violet-300 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_12px_rgba(139,92,246,0.2)]'
               }`}
             >
               $ reach

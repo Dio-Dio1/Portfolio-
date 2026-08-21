@@ -21,7 +21,7 @@ const TopBar = () => {
   }
 
   return (
-    <header className="w-full border-b border-violet-400/20 bg-[#211b2b] text-violet-100 font-mono select-none">
+    <header className="w-full border-b border-violet-400/20 bg-bg-panel text-violet-100 font-mono select-none">
       <div className="mx-auto flex min-h-14 max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
 
         <div className="flex items-center gap-3 text-sm sm:text-base">

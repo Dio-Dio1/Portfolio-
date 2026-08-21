@@ -6,8 +6,8 @@ import { playBlip } from '../../utils/audio'
 
 const SocialsPanel = ({ activePanel, setActivePanel }) => {
   return (
-    <div className="relative flex-1 overflow-hidden font-mono text-violet-400 bg-[#0c0813] p-4 sm:p-6 retro-grid flex flex-col">
-      <div className="flex-1 flex flex-col border border-violet-500/20 bg-[#181224]/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] overflow-hidden">
+    <div className="relative flex-1 overflow-hidden font-mono text-violet-400 bg-bg-base p-4 sm:p-6 retro-grid flex flex-col">
+      <div className="flex-1 flex flex-col border border-violet-500/20 bg-bg-panel/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] overflow-hidden">
 
         <div className="flex justify-between items-center bg-violet-950/40 border-b border-violet-500/20 px-4 py-2.5 text-xs select-none">
           <span className="text-violet-300 font-bold tracking-widest">[ SOCIALS.EXE ]</span>
@@ -41,7 +41,7 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={playBlip}
-              className="flex-1 min-w-[140px] flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-6 py-6 sm:px-10 sm:py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
+              className="flex-1 min-w-[140px] flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-bg-active-btn/30 rounded px-6 py-6 sm:px-10 sm:py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
             >
               <FaGithub className="h-12 w-12 text-violet-400 group-hover:text-violet-200 transition-colors duration-200" />
               <span className="text-sm font-bold text-violet-100 tracking-widest">GITHUB</span>
@@ -53,7 +53,7 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={playBlip}
-              className="flex-1 min-w-[140px] flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-[#1f1630]/40 rounded px-6 py-6 sm:px-10 sm:py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
+              className="flex-1 min-w-[140px] flex flex-col items-center justify-center gap-3 border border-violet-500/20 bg-bg-active-btn/30 rounded px-6 py-6 sm:px-10 sm:py-8 transition-all duration-200 hover:border-violet-400 hover:bg-violet-400/10 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)] hover:scale-105 group"
             >
               <FaLinkedin className="h-12 w-12 text-violet-400 group-hover:text-violet-200 transition-colors duration-200" />
               <span className="text-sm font-bold text-violet-100 tracking-widest">LINKEDIN</span>
@@ -66,8 +66,8 @@ const SocialsPanel = ({ activePanel, setActivePanel }) => {
           </p>
 
           <div className="pt-4 border-t border-violet-500/10">
-            <div className="bg-[#0f0a1c] border border-violet-500/15 p-4 rounded shadow-inner">
-              <Terminal activePanel={activePanel} setActivePanel={setActivePanel} />
+            <div className="bg-bg-inner border border-violet-500/15 p-4 rounded shadow-inner">
+               <Terminal activePanel={activePanel} setActivePanel={setActivePanel} />
             </div>
           </div>
 
