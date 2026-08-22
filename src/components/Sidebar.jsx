@@ -19,10 +19,10 @@ const themes = [
 
 const Sidebar = ({ activePanel, setActivePanel, theme, setTheme }) => {
   return (
-    <aside className="relative flex w-full md:w-[24%] flex-col gap-4 md:gap-6 overflow-hidden bg-bg-base p-3 md:p-4 font-mono border-b md:border-b-0 md:border-r border-violet-500/20 retro-grid">
+    <aside className="relative flex w-full md:w-[24%] flex-col gap-4 md:gap-6 overflow-hidden bg-bg-base p-3 md:p-4 font-mono border-b md:border-b-0 md:border-r border-violet-500/20 retro-grid flex-shrink-0">
       
       {/* Outer Glow Container */}
-      <div className="flex-1 flex flex-col gap-4 md:gap-6 border border-violet-500/20 bg-bg-panel/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] p-3 md:p-4 overflow-y-auto">
+      <div className="flex-grow flex flex-col gap-4 md:gap-6 border border-violet-500/20 bg-bg-panel/85 backdrop-blur-md rounded shadow-[0_0_24px_rgba(139,92,246,0.15)] p-3 md:p-4 overflow-y-auto">
         
         {/* Header section */}
         <header className="border-b border-violet-500/20 pb-4">
@@ -151,7 +151,7 @@ const Sidebar = ({ activePanel, setActivePanel, theme, setTheme }) => {
           {/* Theme Selector for Mobile */}
           <div className="md:hidden flex items-center justify-between mb-3 border-b border-violet-500/20 pb-3">
             <span className="text-[10px] uppercase font-bold text-violet-400/60 tracking-wider">THEME:</span>
-            <div className="flex gap-2.5">
+            <div className="flex gap-2 flex-wrap justify-end">
               {themes.map((t) => (
                 <button
                   key={t.id}
@@ -159,10 +159,10 @@ const Sidebar = ({ activePanel, setActivePanel, theme, setTheme }) => {
                     setTheme(t.id);
                     playBlip();
                   }}
-                  className={`text-[9px] uppercase font-bold px-1.5 py-0.5 border rounded ${
+                  className={`text-[10px] uppercase font-bold px-2.5 py-1 border rounded cursor-pointer transition-all duration-150 ${
                     theme === t.id
-                      ? 'border-violet-400 bg-violet-400 text-bg-base'
-                      : 'border-violet-500/20 text-violet-400/60'
+                      ? 'border-violet-400 bg-violet-400 text-bg-base shadow-[0_0_10px_rgba(139,92,246,0.4)] font-extrabold'
+                      : 'border-violet-500/30 bg-violet-950/20 text-violet-400/70 hover:border-violet-400/50 hover:text-violet-300'
                   }`}
                 >
                   {t.id}

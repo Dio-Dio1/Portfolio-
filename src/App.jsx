@@ -57,7 +57,7 @@ const App = () => {
           theme={theme} 
           setTheme={setTheme} 
         />
-        <div key={activePanel} className="flex flex-1 min-w-0 h-full md:h-full animate-panel-in">
+        <div key={activePanel} className="flex flex-1 min-w-0 min-h-0 md:h-full animate-panel-in">
           {activePanel == 'about' ? <AboutPanel activePanel={activePanel} setActivePanel={setActivePanel} /> :
             activePanel === 'projects' ? (
 
