@@ -1,11 +1,19 @@
-Portfolio Website
+Retro Terminal Portfolio
 
-- It's a personal portfolio that's designed to resemble a terminal/retro style interface.
-- The goal is the make it feel more like an experience rather than a traditional site. 
-
+A sleek, responsive personal portfolio website designed to emulate a retro CRT computer terminal experience. Built using React, TailwindCSS, and custom CSS styling for maximum retro-immersion.
 
 
-Current Status (What's left):
+Live Experience:
 
-- Redirect issue(Linkedin)
-- Responsiveness 
+Interactive Command Terminal
+CRT Theme Switcher
+Sound FX System
+Phosphor Scanline Effect
+Responsive Mobile Layout
+
+
+Future Enhancement:
+
+Online Resume
+Additional Terminal CommandsTab
+Tab-AutoCompletion feature
